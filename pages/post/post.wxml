@@ -8,17 +8,17 @@
   <block wx:for="{{postinfo}}" wx:for-item="item">
     <view class="post-container">
       <view class="post-author-date">
-        <image src="{{item.img.author_img}}" class="post-author"></image>
+        <image src="{{item.avatar}}" class="post-author"></image>
         <text class="post-date">{{item.date}}</text>
       </view>
       <text class="post-title">{{item.title}}</text>
-      <image class="post-image" src="{{item.img.post_img}}"></image>
+      <image class="post-image" src="{{item.imgsrc}}"></image>
       <text class="post-content">{{item.content}}</text>
       <view class="post-like">
         <image class="post-like-image" src="/img/icon/chat.png"></image>
-        <text class="post-like-font">{{item.collect_num}}</text>
+        <text class="post-like-font">{{item.reading}}</text>
         <image class="post-like-image" src="/img/icon/view.png"></image>
-        <text class="post-like-font">{{item.view_num}}</text>
+        <text class="post-like-font">{{item.collection}}</text>
       </view>
     </view>
   </block>

@@ -1,9 +1,8 @@
 <!--pages/welcome/welcom.wxml-->
 <view class="container">
-    <image src="../../img/12.jpg" class="user-avatar"></image>
-    <text class="user-name">hello,Yui</text>
-
-    <button class="moto">
-        开启小程序
-    </button>
+  <image src="/img/avatar/user.jpg" class="user-avatar"></image>
+  <text class="user-name">hello,{{username}}</text>
+  <button class="moto" bindtap="onTap">
+    开启小程序
+  </button>
 </view>

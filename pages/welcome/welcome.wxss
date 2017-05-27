@@ -1,34 +1,39 @@
 /* pages/welcome/welcom.wxss */
-page{
-    background-color: #b3d4db;
 
+page {
+  background-color: #b3d4db;
 }
-.container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.user-avatar{
-    width: 150rpx;
-    height: 150rpx; 
-    margin-top: 160rpx; 
-    border-radius: 50%;
+
+.user-avatar {
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 160rpx;
+  border-radius: 50%;
 }
-.user-name,.moto{
-    font-weight: bold;
+
+.user-name, .moto {
+  font-weight: bold;
 }
-.user-name{
-    font-size: 32rpx;
-    margin-top: 100rpx;
+
+.user-name {
+  font-size: 32rpx;
+  margin-top: 100rpx;
 }
-.moto{
-    margin-top: 200rpx;
-    border: 1rpx solid #405f80;
-    width: 200rpx;
-    height: 80rpx;
-    border-radius: 5rpx;
-    text-align: center;
-    font-size: 22rpx;
-    line-height: 80rpx;
-    background-color: transparent;
+
+.moto {
+  margin-top: 200rpx;
+  border: 1rpx solid #405f80;
+  width: 200rpx;
+  height: 80rpx;
+  border-radius: 5rpx;
+  text-align: center;
+  font-size: 22rpx;
+  line-height: 80rpx;
+  background-color: transparent;
 }

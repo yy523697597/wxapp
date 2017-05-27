@@ -8,6 +8,7 @@
 
   <block wx:for="{{postList}}" wx:for-item="item">
     <!--template-->
-    <template is="post-item" data="{{item}}"></template>
+    <!--使用...来展开item对象-->
+    <template is="post-item" data="{{...item}}"></template>
   </block>
 </view>

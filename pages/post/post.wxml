@@ -1,11 +1,11 @@
 <view>
   <swiper indicator-dots="true" autoplay="true" interval="5000" circular="true">
-    <swiper-item wx:for="{{swiperinfo}}">
+    <swiper-item wx:for="{{swiperInfo}}">
       <image src="{{item.swipersrc}}"></image>
     </swiper-item>
   </swiper>
 
-  <block wx:for="{{postinfo}}" wx:for-item="item">
+  <block wx:for="{{postList}}" wx:for-item="item">
     <view class="post-container">
       <view class="post-author-date">
         <image src="{{item.avatar}}" class="post-author"></image>

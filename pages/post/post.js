@@ -1,5 +1,6 @@
 var postsData = require('../../data/posts-data.js');
 
+
 Page({
   /**
    * 页面的初始数据
@@ -11,8 +12,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      swiperinfo: postsData[0],
-      postinfo: postsData[1]
+      swiperInfo: postsData.swiperInfo,
+      postList: postsData.postList
     });
   }
 })

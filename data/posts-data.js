@@ -1,14 +1,5 @@
 var local_database = [
-  [{
-    swipersrc: "/img/swiper/lsyy.jpg"
-  },
   {
-    swipersrc: "/img/swiper/dkfy.jpg"
-  }, {
-    swipersrc: "/img/swiper/ccda.jpg"
-  }], 
-  
-  [{
     date: "2017-05-27",
     title: "摔跤吧！爸爸!",
     content: "马哈维亚（阿米尔 · 汗 Aamir Khan 饰）曾经是一名前途无量的摔跤运动员，在放弃了职业生涯后，他最大的遗憾就是没有能够替国家赢得金牌。",
@@ -33,9 +24,18 @@ var local_database = [
     avatar: "/img/avatar/3.png",
     reading: 117,
     collection: 235
-  }]
+  }];
 
-];
+var swiper_info = [{
+  swipersrc: "/img/swiper/lsyy.jpg"
+},
+{
+  swipersrc: "/img/swiper/dkfy.jpg"
+}, {
+  swipersrc: "/img/swiper/ccda.jpg"
+}];
+
 module.exports = {
-  postList: local_database
+  postList: local_database,
+  swiperInfo: swiper_info
 };

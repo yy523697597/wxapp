@@ -1,0 +1,9 @@
+<!--pages/welcome/welcom.wxml-->
+<view class="container">
+    <image src="../../img/12.jpg" class="user-avatar"></image>
+    <text class="user-name">hello,Yui</text>
+
+    <button class="moto">
+        开启小程序
+    </button>
+</view>

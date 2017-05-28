@@ -15,5 +15,12 @@ Page({
       swiperInfo: postsData.swiperInfo,
       postList: postsData.postList
     });
+  },
+  onTap:function(evt){
+    var postid = evt.currentTarget.dataset.postid;
+    // console.log('tapid is '+postid);
+    wx.navigateTo({
+      url: 'post-detail/post-detail',
+    })
   }
 })

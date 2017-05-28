@@ -9,6 +9,8 @@
   <block wx:for="{{postList}}" wx:for-item="item">
     <!--template-->
     <!--使用...来展开item对象-->
-    <template is="post-item" data="{{...item}}"></template>
+    <view catchtap="onTap" data-postid="{{item.postid}}">
+    <template is="post-item" data="{{...item}}"/>
+    </view>
   </block>
 </view>

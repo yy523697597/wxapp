@@ -7,7 +7,8 @@ var local_database = [
     avatar: "/img/avatar/1.png"
     ,
     reading: 92,
-    collection: 65
+    collection: 65,
+    postid:0
   }, {
     date: "2017-05-27",
     title: "杰克船长再临!",
@@ -15,7 +16,8 @@ var local_database = [
     imgsrc: "/img/post/jlb.jpg",
     avatar: "/img/avatar/2.png",
     reading: 114,
-    collection: 86
+    collection: 86,
+    postid: 1
   }, {
     date: "2017-05-27",
     title: "异星觉醒",
@@ -23,7 +25,8 @@ var local_database = [
     imgsrc: "/img/post/yxjx.jpg",
     avatar: "/img/avatar/3.png",
     reading: 117,
-    collection: 235
+    collection: 235,
+    postid: 2
   }];
 
 var swiper_info = [{

@@ -1,13 +1,13 @@
 <view class="container">
-  <image class="header-image" src="/img/post/sls.jpg"></image>
+  <image class="header-image" src="{{headImage}}"></image>
   <image class="audio" src="/img/music/music-start.png"></image>
   <view class="author-data">
-    <image class="author-image" src="/img/avatar/2.png"></image>
-    <text class="author">知乎</text>
+    <image class="author-image" src="{{avatar}}"></image>
+    <text class="author">{{author}}</text>
     <text class="const-text">发表于</text>
-    <text class="date">三天前</text>
+    <text class="date">{{dateTime}}</text>
   </view>
-  <text class="title">当我们在谈论经济学时，我们在谈论什么？</text>
+  <text class="title">{{title}}</text>
   <view class="tool">
     <view class="circle-image">
       <image class="" src="/img/icon/collection.png"></image>
@@ -15,5 +15,5 @@
     </view>
     <view class="horizon"></view>
   </view>
-  <text class="detail">引言，在我和淡淡的淡淡的等等等等顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶</text>
+  <text class="detail">{{detail}}</text>
 </view>

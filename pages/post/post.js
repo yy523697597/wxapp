@@ -16,11 +16,11 @@ Page({
       postList: postsData.postList
     });
   },
-  onTap:function(evt){
+  onTap: function (evt) {
     var postid = evt.currentTarget.dataset.postid;
     // console.log('tapid is '+postid);
     wx.navigateTo({
-      url: 'post-detail/post-detail',
+      url: 'post-detail/post-detail?id=' + postid
     })
   }
 })

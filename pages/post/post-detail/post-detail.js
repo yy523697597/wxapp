@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    currentPostId: ''
+    currentPostId: '',
+    isPlayingMusic:false
   },
 
   /**
@@ -66,15 +67,35 @@ Page({
     ];
     wx.showActionSheet({
       itemList: itemList,
-      itemColor:"#355A83",
+      itemColor: "#355A83",
       success: function (res) {
         wx.showModal({
           title: itemList[res.tapIndex],
-          content:"是否取消? "+res.cancel+" 现在无法分享"
+          content: "是否取消? " + res.cancel + " 现在无法分享"
         })
       }
     })
   },
+  onMusicTap: function () {
+    var isPlayingMusic = this.data.isPlayingMusic;
+    if (isPlayingMusic){
+      wx.stopBackgroundAudio();
+      this.setData({
+        isPlayingMusic: false
+      })
+    }else{
+      wx.playBackgroundAudio({
+        dataUrl: 'http://sc1.111ttt.com/2015/1/05/20/98201702501.mp3',
+        title: 'The Rain-久石让',
+        coverImgUrl: 'https://y.gtimg.cn/music/photo_new/T002R300x300M000001zzFtE3o5YUo.jpg?max_age=2592000'
+      });
+      this.setData({
+        isPlayingMusic:true
+      })
+    }
+   
+  }
+  ,
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

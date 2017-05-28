@@ -78,6 +78,8 @@ Page({
   },
   onMusicTap: function () {
     var isPlayingMusic = this.data.isPlayingMusic;
+    var currentPostId = this.data.currentPostId;
+    var music = postsData.postList[currentPostId].music;
     if (isPlayingMusic){
       wx.stopBackgroundAudio();
       this.setData({
@@ -85,9 +87,9 @@ Page({
       })
     }else{
       wx.playBackgroundAudio({
-        dataUrl: 'http://sc1.111ttt.com/2015/1/05/20/98201702501.mp3',
-        title: 'The Rain-久石让',
-        coverImgUrl: 'https://y.gtimg.cn/music/photo_new/T002R300x300M000001zzFtE3o5YUo.jpg?max_age=2592000'
+        dataUrl: music.dataUrl,
+        title: music.title,
+        coverImgUrl: music.coverImgUrl
       });
       this.setData({
         isPlayingMusic:true

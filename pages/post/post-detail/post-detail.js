@@ -36,17 +36,27 @@ Page({
   },
   onCollectionTap: function (event) {
     var collectionList = wx.getStorageSync('collectionList');
-    // 获取文章缓存状态
+    // 获取文章收藏状态
     var collectionStatus = collectionList[this.data.currentPostId];
     // 文章收藏状态切换
     collectionStatus = !collectionStatus;
     // 存储文章收藏状态
     collectionList[this.data.currentPostId] = collectionStatus;
-    wx.setStorageSync('collectionList', collectionList);
+    // 三个参数为,Storage键、值、文章收藏状态
+    this.showToast('collectionList', collectionList, collectionStatus);
+  },
+  showToast: function (key, value, status) {
+
+    wx.setStorageSync(key, value);
     // 更新文章收藏状态
     this.setData({
-      collectionStatus: collectionStatus
+      collectionStatus: status
     });
+    // 显示提示
+    wx.showToast({
+      title: status ? "收藏成功" : "取消成功",
+      duration: 1000
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

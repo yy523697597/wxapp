@@ -1,6 +1,7 @@
 var postsData = require('../../../data/posts-data.js');
- // 获取app对象
+// 获取app对象
 var app = getApp();
+
 Page({
 
   /**
@@ -35,12 +36,16 @@ Page({
       var collectionList = {};
       wx.setStorageSync('collectionList', collectionList);
     }
-   
-  //  从app对象中获取全局的音乐播放状态并设置当前页面的音乐播放状态
+
+    //  从app对象中获取全局的音乐播放状态并设置当前页面的音乐播放状态
     var g_isPlayingMusic = app.gobalData.g_isPlayingMusic;
-    this.setData({
-      isPlayingMusic: g_isPlayingMusic
-    });
+    var g_MusicPostId = app.gobalData.g_MusicPostId;
+    // 如果正在播放音乐，并且文章id和正在播放音乐的文章id相同就设置文章的音乐播放状态
+    if (g_isPlayingMusic && g_MusicPostId === postid) {
+      this.setData({
+        isPlayingMusic: g_isPlayingMusic
+      });
+    }
     this.setMusicStatus();
 
   },
@@ -52,7 +57,9 @@ Page({
         isPlayingMusic: true
       });
       // 设置全局音乐播放状态
-      app.gobalData.g_isPlayingMusic=true;
+      app.gobalData.g_isPlayingMusic = true;
+      // 设置正在播放音乐文章id
+      app.gobalData.g_MusicPostId = that.data.currentPostId;
     });
     wx.onBackgroundAudioPause(function () {
       that.setData({
@@ -60,6 +67,8 @@ Page({
       });
       // 设置全局音乐播放状态
       app.gobalData.g_isPlayingMusic = false;
+      // 音乐暂停时清楚正在播放音乐文章id
+      app.gobalData.g_MusicPostId = null;
     });
   },
   onCollectionTap: function (event) {
@@ -108,7 +117,8 @@ Page({
     var currentPostId = this.data.currentPostId;
     var music = postsData.postList[currentPostId].music;
     if (isPlayingMusic) {
-      wx.stopBackgroundAudio();
+      // 暂停音乐播放
+      wx.pauseBackgroundAudio();
       this.setData({
         isPlayingMusic: false
       });

@@ -55,15 +55,74 @@ var local_database = [
       title: '故乡原风景',
       coverImgUrl: 'https://y.gtimg.cn/music/photo_new/T002R300x300M0000031UXjr3kzYTo.jpg?max_age=2592000'
     }
-  }];
+  },
+  {
+    date: "2017-05-31",
+    title: "荡寇风云",
+    content: "影片讲述了一代名将戚继光南征倭寇还沿海太平的传奇故事，明末年间地方官府腐败、明兵军心不整，倭寇趁虚而入，屡次进犯东南沿海。",
+    imgsrc: "/img/swiper/dkfy.jpg",
+    avatar: "/img/avatar/4.png",
+    reading: 108,
+    collection: 465,
+    postid: 3,
+    headImage: "/img/swiper/dkfy.jpg",
+    author: "档口绝",
+    dateTime: "2017-05-31",
+    detail: "影片讲述了一代名将戚继光南征倭寇还沿海太平的传奇故事，明末年间地方官府腐败、明兵军心不整，倭寇趁虚而入，屡次进犯东南沿海。正值内忧外患之际，戚继光（赵文卓 饰）临危受命，与俞大猷（洪金宝 饰）自行招募三千义乌村民，在短短数日之内，以严明军纪、非常手段操练新兵，以先进武器、精绝阵法武装部队，成为史上首支 “特种部队”、闻名中外的 “戚家军。",
+    music: {
+      dataUrl: 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46',
+      title: '此时此刻',
+      coverImgUrl: 'http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000'
+    }
+  }, {
+    date: "2017-05-31",
+    title: "吃吃的爱",
+    content: "想要在巨星姐姐面前证明自己的 18 线小演员上官娣娣（徐熙娣 饰）。",
+    imgsrc: "/img/swiper/ccda.jpg",
+    avatar: "/img/avatar/5.png",
+    reading: 108,
+    collection: 65,
+    postid: 4,
+    headImage: "/img/swiper/ccda.jpg",
+    author: "余非",
+    dateTime: "2017-05-31",
+    detail: "想要在巨星姐姐面前证明自己的 18 线小演员上官娣娣（徐熙娣 饰），和多年期待真爱却在最后被狠狠出卖的空间站黑鸟面馆老板娘许春梅（徐熙娣 饰），当两个人的世界以想象不到的方式不期而遇，她们的命运会发生什么样的改变?",
+    music: {
+      dataUrl: 'http://ws.stream.qqmusic.qq.com/C100000Zn0vS4fKKo8.m4a?fromtag=38',
+      title: '沉默是金',
+      coverImgUrl: 'http://y.gtimg.cn/music/photo_new/T002R150x150M000003at0mJ2YrR2H.jpg?max_age=2592000'
+    }
+  }, {
+    date: "2017-05-31",
+    title: "临时演员",
+    content: "梁丹妮（热依扎 饰）是演艺圈里冉冉升起的一颗新星，有着持续升温的人气和无量的前途。然而，一场意外的发生让狗仔记者们拍到了她和一个名为李非凡（郑凯 饰）的男子在旅店的亲密照，虽然这一切只是一场误会，但一切澄清和洗白都为时已晚。 ",
+    imgsrc: "/img/swiper/lsyy.jpg",
+    avatar: "/img/avatar/5.png",
+    reading: 108,
+    collection: 65,
+    postid: 5,
+    headImage: "/img/swiper/lsyy.jpg",
+    author: "电影热讯",
+    dateTime: "2017-05-31",
+    detail: "梁丹妮（热依扎 饰）是演艺圈里冉冉升起的一颗新星，有着持续升温的人气和无量的前途。然而，一场意外的发生让狗仔记者们拍到了她和一个名为李非凡（郑凯 饰）的男子在旅店的亲密照，虽然这一切只是一场误会，但一切澄清和洗白都为时已晚。 实际上，梁丹妮已经有了一位交往已久的男友——地产富商石非凡（郭晓冬 饰），为了挽回女友的声誉，石非凡扎到了李非凡，给了后者巨额报酬，要求他成为梁丹妮的 “临时男友”，经受不住巨大利益的诱惑，李非凡沦陷了。一边是养尊处优的女明星，一边是低眉顺眼的代驾小哥，这一对性格和身份迥异的男女凑到一起，闹出了无数的矛盾和笑料。",
+    music: {
+      dataUrl: 'http://ws.stream.qqmusic.qq.com/C100003507bR0gDKBm.m4a?fromtag=38',
+      title: '夜夜夜夜',
+      coverImgUrl: 'http://y.gtimg.cn/music/photo_new/T002R150x150M000001TEc6V0kjpVC.jpg?max_age=2592000'
+    }
+  }
+];
 
 var swiper_info = [{
-  swipersrc: "/img/swiper/lsyy.jpg"
+  swipersrc: "/img/swiper/lsyy.jpg",
+  postid: 5
 },
 {
-  swipersrc: "/img/swiper/dkfy.jpg"
+  swipersrc: "/img/swiper/dkfy.jpg",
+  postid: 3
 }, {
-  swipersrc: "/img/swiper/ccda.jpg"
+  swipersrc: "/img/swiper/ccda.jpg",
+  postid: 4
 }];
 
 module.exports = {

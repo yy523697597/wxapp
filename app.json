@@ -13,7 +13,7 @@
     "list": [
       {
         "pagePath": "pages/post/post",
-        "text": "文章"
+        "text": "阅读"
       },
       {
         "pagePath": "pages/movies/movies",

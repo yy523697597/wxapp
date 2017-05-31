@@ -1,5 +1,6 @@
 var postsData = require('../../../data/posts-data.js');
-
+ // 获取app对象
+var app = getApp();
 Page({
 
   /**
@@ -7,7 +8,7 @@ Page({
    */
   data: {
     currentPostId: '',
-    isPlayingMusic:false
+    isPlayingMusic: false
   },
 
   /**
@@ -34,6 +35,32 @@ Page({
       var collectionList = {};
       wx.setStorageSync('collectionList', collectionList);
     }
+   
+  //  从app对象中获取全局的音乐播放状态并设置当前页面的音乐播放状态
+    var g_isPlayingMusic = app.gobalData.g_isPlayingMusic;
+    this.setData({
+      isPlayingMusic: g_isPlayingMusic
+    });
+    this.setMusicStatus();
+
+  },
+  setMusicStatus: function () {
+    // 监听全局音乐播放状态，用于同步文章详情页面图片
+    var that = this;
+    wx.onBackgroundAudioPlay(function () {
+      that.setData({
+        isPlayingMusic: true
+      });
+      // 设置全局音乐播放状态
+      app.gobalData.g_isPlayingMusic=true;
+    });
+    wx.onBackgroundAudioPause(function () {
+      that.setData({
+        isPlayingMusic: false
+      });
+      // 设置全局音乐播放状态
+      app.gobalData.g_isPlayingMusic = false;
+    });
   },
   onCollectionTap: function (event) {
     var collectionList = wx.getStorageSync('collectionList');
@@ -80,51 +107,23 @@ Page({
     var isPlayingMusic = this.data.isPlayingMusic;
     var currentPostId = this.data.currentPostId;
     var music = postsData.postList[currentPostId].music;
-    if (isPlayingMusic){
+    if (isPlayingMusic) {
       wx.stopBackgroundAudio();
       this.setData({
         isPlayingMusic: false
-      })
-    }else{
+      });
+    } else {
       wx.playBackgroundAudio({
         dataUrl: music.dataUrl,
         title: music.title,
         coverImgUrl: music.coverImgUrl
       });
       this.setData({
-        isPlayingMusic:true
-      })
+        isPlayingMusic: true
+      });
     }
-   
+
   }
-  ,
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
 
 
 })

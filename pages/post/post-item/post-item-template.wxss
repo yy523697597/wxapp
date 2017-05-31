@@ -49,22 +49,4 @@
   line-height: 40rpx;
 }
 
-.post-like {
-  font-size: 20rpx;
-  display: flex;
-  flex-direction: row;
-  line-height: 20rpx;
-  margin-left: 10rpx;
-}
 
-.post-like-image {
-  height: 26rpx;
-  width: 26rpx;
-  margin-right: 8rpx;
-  vertical-align: middle;
-}
-
-.post-like-font {
-  vertical-align: middle;
-  margin-right: 20rpx;
-}

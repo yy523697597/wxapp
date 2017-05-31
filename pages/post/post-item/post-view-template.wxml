@@ -1,0 +1,8 @@
+<template name="post-view">
+  <view class="post-like">
+    <image class="post-like-image" src="/img/icon/chat.png"></image>
+    <text class="post-like-font">{{reading}}</text>
+    <image class="post-like-image" src="/img/icon/view.png"></image>
+    <text class="post-like-font">{{collection}}</text>
+  </view>
+</template>

@@ -1,3 +1,4 @@
+
 <template name="post-item">
   <view class="post-container">
     <view class="post-author-date">
@@ -7,11 +8,5 @@
     <text class="post-title">{{title}}</text>
     <image class="post-image" src="{{imgsrc}}"></image>
     <text class="post-content">{{content}}</text>
-    <view class="post-like">
-      <image class="post-like-image" src="/img/icon/chat.png"></image>
-      <text class="post-like-font">{{reading}}</text>
-      <image class="post-like-image" src="/img/icon/view.png"></image>
-      <text class="post-like-font">{{collection}}</text>
-    </view>
   </view>
 </template>

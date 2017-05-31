@@ -1,5 +1,5 @@
 @import "post-item/post-item-template.wxss";
-
+@import "post-item/post-view-template.wxss";
 swiper, image {
   width: 100%;
   height: 600rpx;

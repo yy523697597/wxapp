@@ -41,10 +41,11 @@ Page({
       url: 'post-detail/post-detail?id=' + postid
     });
 
+    // postsData.postList[postid].reading++;
     // readingList[postid] = postsData.postList[postid].reading;
     // wx.setStorageSync('readingList', readingList);
   },
-  onSwiperTap: function (evt) {
+  onSwiperTap: function (evt) { 
     var postid = evt.currentTarget.dataset.postid;
     wx.navigateTo({
       url: 'post-detail/post-detail?id=' + postid

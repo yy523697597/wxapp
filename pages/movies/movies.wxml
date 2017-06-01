@@ -1,1 +1,6 @@
-<view class="classname">ddfd</view>
+<import src="movie-list/movielist-template.wxml" />
+<view class="">
+  <template is="movielist" />
+  <template is="movielist" />
+  <template is="movielist" />
+</view>

@@ -10,15 +10,22 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
+    "borderStyle": "white",
+    "selectedColor": "#355A83",
+    "backgroundColor": "#fff",
     "list": [
       {
         "pagePath": "pages/post/post",
-        "text": "阅读"
+        "text": "阅读",
+        "iconPath": "/img/tab/yuedu.png",
+        "selectedIconPath": "/img/tab/yuedu_hl.png"
       },
       {
         "pagePath": "pages/movies/movies",
-        "text": "电影"
+        "text": "电影",
+        "iconPath": "/img/tab/dianying.png",
+        "selectedIconPath": "/img/tab/dianying_hl.png"
       }
     ]
-  } 
+  }
 }

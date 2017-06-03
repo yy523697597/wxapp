@@ -1,3 +1,4 @@
+var app = getApp();
 Page({
 
   /**
@@ -11,8 +12,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var url = app.gobalData.doubanUrl;
+    var inTheatersUrl = url + '/v2/movie/in_theaters';
+    var comingSoonUrl = url + '/v2/movie/coming_soon';
+    var top250Url = url + '/v2/movie/top250';
+    this.getMovieList(inTheatersUrl);
+    this.getMovieList(comingSoonUrl);
+    this.getMovieList(top250Url);
+  },
+  getMovieList: function (url) {
     wx.request({
-      url: 'https://api.douban.com/v2/movie/top250',
+      url: url,
       method: 'GET',
       header: {
         // 豆瓣API不能填 'application/json'
@@ -21,12 +31,12 @@ Page({
       success: function (res) {
         console.log(res)
       },
-      fail: function () {
-        console.log('failed');
+      fail: function (error) {
+        console.log(error);
       }
     });
-   
-  },
+  }
+  ,
 
   /**
    * 生命周期函数--监听页面初次渲染完成

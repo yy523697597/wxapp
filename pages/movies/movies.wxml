@@ -1,12 +1,13 @@
 <import src="movie-list/movielist-template.wxml" />
 <view class="container">
   <view>
-    <template is="movielist" data="{{movies}}" />
+    <!--通过...展开属性,因为在每个属性下的movies属性才真正存在数据-->
+    <template is="movielist" data="{{...inTheaters}}" />
   </view>
   <view>
-    <template is="movielist" />
+    <template is="movielist" data="{{...comingSoon}}" />
   </view>
   <view>
-    <template is="movielist" />
+    <template is="movielist" data="{{...top250}}" />
   </view>
 </view>

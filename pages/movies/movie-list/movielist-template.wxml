@@ -10,9 +10,10 @@
         </view>
       </view>
       <view class="movietemp-container">
-        <template is="movie" />
-        <template is="movie" />
-        <template is="movie" />
+      <!--wx:for后面要加{{}}-->
+        <block wx:for="{{movies}}" wx:for-item="movie">
+          <template is="movie" data="{{...movie}}"/>
+        </block>
       </view>
     </view>
   </view>

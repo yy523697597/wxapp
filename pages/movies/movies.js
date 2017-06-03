@@ -13,14 +13,15 @@ Page({
    */
   onLoad: function (options) {
     var url = app.gobalData.doubanUrl;
-    var inTheatersUrl = url + '/v2/movie/in_theaters';
-    var comingSoonUrl = url + '/v2/movie/coming_soon';
-    var top250Url = url + '/v2/movie/top250';
+    var inTheatersUrl = url + '/v2/movie/in_theaters' + '?start=0&count=3';
+    var comingSoonUrl = url + '/v2/movie/coming_soon' + '?start=0&count=3';
+    var top250Url = url + '/v2/movie/top250' + '?start=0&count=3';
     this.getMovieList(inTheatersUrl);
-    this.getMovieList(comingSoonUrl);
-    this.getMovieList(top250Url);
+    // this.getMovieList(comingSoonUrl);
+    // this.getMovieList(top250Url);
   },
   getMovieList: function (url) {
+    var that = this;
     wx.request({
       url: url,
       method: 'GET',
@@ -29,61 +30,37 @@ Page({
         'content-type': 'json'
       },
       success: function (res) {
-        console.log(res)
+        console.log(res);
+        var moviedata = res.data;
+        that.handleData(moviedata);
       },
       fail: function (error) {
         console.log(error);
       }
     });
+  },
+  handleData: function (moviedata) {
+    var movies = [];
+    for (var key in moviedata.subjects) {
+      var subject = moviedata.subjects[key];
+      var title = subject.title;
+      var movieid = subject.id;
+      var score = subject.rating.average;
+      var coverimgUrl = subject.images.large;
+      if (title.length > 6) {
+        title = title.substring(0, 6) + '...';
+      }
+      var temp = {
+        title: title,
+        score: score,
+        coverimgUrl: coverimgUrl,
+        movieid: movieid
+      };
+      movies.push(temp);
+    }
+    this.setData({
+      movies: movies
+    });
   }
-  ,
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

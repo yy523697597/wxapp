@@ -7,10 +7,12 @@
 .movie-img{
   width: 200rpx;
   height: 270rpx;
-  padding-bottom: 20rpx;
+  padding-bottom: 10rpx;
 }
 .movie-title{
-  text-align: center;
   font-size: 24rpx;
   margin-bottom: 16rpx
+}
+.movie-figure{
+  margin-bottom: 15rpx;
 }

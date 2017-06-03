@@ -1,8 +1,10 @@
 <import src="../stars/stars-template.wxml" />
 <template name="movie">
   <view class="movie-container">
-    <image class="movie-img" src="/img/movie/sqnx.jpg"></image>
-    <text class="movie-title">神奇女侠</text>
+    <view>
+      <image class="movie-img" src="/img/movie/sqnx.jpg"></image>
+      <text class="movie-title">神奇女侠</text>
+    </view>
+    <template is="stars"></template>
   </view>
-  <template is="stars"></template>
 </template>

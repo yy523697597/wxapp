@@ -2,11 +2,10 @@
   display: flex;
   flex-direction: column;
   margin-top: 20rpx;
-  margin-bottom: 40rpx;
   background-color: #fff;
-  border-bottom: 1px solid #ededed;
   border-top: 1px solid #ededed;
   padding-bottom: 5rpx;
+
 }
 
 .post-author-date {
@@ -48,5 +47,3 @@
   letter-spacing: 2rpx;
   line-height: 40rpx;
 }
-
-

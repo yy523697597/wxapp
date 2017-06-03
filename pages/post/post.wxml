@@ -1,17 +1,18 @@
-<import src="post-item/post-item-template.wxml"  />
-<import src="post-item/post-view-template.wxml"  />
+<import src="post-item/post-item-template.wxml" />
+<import src="post-item/post-view-template.wxml" />
 <view>
   <swiper indicator-dots="true" autoplay="true" interval="5000" circular="true">
     <swiper-item wx:for="{{swiperInfo}}">
       <image catchtap="onSwiperTap" src="{{item.swipersrc}}" data-postid="{{item.postid}}"></image>
     </swiper-item>
   </swiper>
+
   <block wx:for="{{postList}}" wx:for-item="item">
     <!-- template -->
     <!-- 使用...来展开item对象 -->
-    <view catchtap="onPostTap" data-postid="{{item.postid}}">
-      <template is="post-item" data="{{...item}}"  />
-      <template is="post-view" data="{{...item}}"  />
+    <view catchtap="onPostTap" data-postid="{{item.postid}}" class="post-item">
+      <template is="post-item" data="{{...item}}" />
+      <template is="post-view" data="{{...item}}" />
     </view>
   </block>
 </view>

@@ -1,11 +1,13 @@
 <template name="stars">
   <view class="stars-container">
     <view class="stars">
-      <image src="/img/icon/star.png"></image>
-      <image src="/img/icon/star.png"></image>
-      <image src="/img/icon/star.png"></image>
-      <image src="/img/icon/star.png"></image>
-      <image src="/img/icon/star.png"></image>
+
+      <block wx:for="{{stars}}" wx:for-item="i">
+        <!--注意if和elif的写法-->
+        <image wx:if="{{i===1}}" src="/img/icon/star.png"></image>
+        <image wx:elif="{{i===2}}" src="/img/icon/half-star.png"></image>
+        <image wx:else src="/img/icon/none-star.png"></image>
+      </block>
     </view>
     <text class="stars-score">{{score}}</text>
   </view>

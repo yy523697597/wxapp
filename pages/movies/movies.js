@@ -1,10 +1,14 @@
 var app = getApp();
+var util = require('../../utils/util.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    inTheaters: {},
+    comingSoon: {},
+    top250: {}
   },
 
   /**
@@ -45,6 +49,7 @@ Page({
       var title = subject.title;
       var movieid = subject.id;
       var score = subject.rating.average;
+      var stars = util.convertStarsToArray(subject.rating.stars);
       var coverimgUrl = subject.images.large;
       if (title.length > 6) {
         title = title.substring(0, 6) + '...';
@@ -53,7 +58,8 @@ Page({
         title: title,
         score: score,
         coverimgUrl: coverimgUrl,
-        movieid: movieid
+        movieid: movieid,
+        stars: stars
       };
       movies.push(temp);
     }

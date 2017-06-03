@@ -5,6 +5,6 @@
       <image class="movie-img" src="{{coverimgUrl}}"></image>
       <text class="movie-title">{{title}}</text>
     </view>
-    <template is="stars" data="{{score}}"></template>
+    <template is="stars" data="{{score:score,stars:stars}}"></template>
   </view>
 </template>

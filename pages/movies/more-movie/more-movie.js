@@ -88,13 +88,10 @@ Page({
     })
   },
   onScrollLower: function () {
-    if (!this.data.isFreshing) {
-      console.log(this.data.isFreshing)
+    if (this.data.isFreshing) {
       var nextUrl = this.data.requestUrl + '?start=' + this.data.totalCount + '&count=18';
-      console.log(nextUrl)
       util.getMovieList(nextUrl, this.handleData);
       this.data.isFreshing = false;
-      console.log(this.data.isFreshing)
     }
   }
 })

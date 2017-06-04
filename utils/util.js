@@ -16,7 +16,25 @@ function convertStarsToArray(stars) {
   }
   return array;
 }
+
+function getMovieList(url, cb) {
+  wx.request({
+    url: url,
+    method: 'GET',
+    header: {
+      // 豆瓣API不能填 'application/json'
+      'content-type': 'json'
+    },
+    success: function (res) {
+      cb(res.data);
+    },
+    fail: function (error) {
+      console.log(error);
+    }
+  });
+}
 // 此处是exports别写成export
 module.exports = {
-  convertStarsToArray: convertStarsToArray
+  convertStarsToArray: convertStarsToArray,
+  getMovieList: getMovieList
 };

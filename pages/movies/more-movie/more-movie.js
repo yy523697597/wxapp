@@ -1,72 +1,68 @@
 // pages/movies/more-movie/more-movie.js
+var app = getApp();
+var util = require('../../../utils/util');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    category: ''
+    navigationTitle: '',
+    movies: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var category = options.category;
+    var navigationTitle = options.category;
     this.setData({
-      category: category
+      navigationTitle: navigationTitle
     });
+    var baseUrl = app.gobalData.doubanUrl;
+    var dataUrl = '';
+    switch (navigationTitle) {
+      case "正在上映的电影-成都":
+        dataUrl = baseUrl + '/v2/movie/in_theaters';
+        break;
+      case "即将上映的电影":
+        dataUrl = baseUrl + '/v2/movie/coming_soon';
+        break;
+      case "豆瓣电影Top250":
+        dataUrl = baseUrl + '/v2/movie/top250';
+        break;
+    }
+    util.getMovieList(dataUrl, this.handleData);
   },
+  handleData: function (moviedata) {
+    var movies = [];
+    var slogan = moviedata.title;
+    for (var key in moviedata.subjects) {
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
-    wx.setNavigationBarTitle({
-      title: this.data.category,
-    })
-  },
+      var subject = moviedata.subjects[key];
+      var title = subject.title;
+      var movieid = subject.id;
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+      var score = subject.rating.average
 
-  },
+      var stars = util.convertStarsToArray(subject.rating.stars);
+      var coverimgUrl = subject.images.large;
+      if (title.length > 6) {
+        title = title.substring(0, 6) + '...';
+      }
+      var temp = {
+        title: title,
+        score: score,
+        coverimgUrl: coverimgUrl,
+        movieid: movieid,
+        stars: stars
+      };
+      movies.push(temp);
+    }
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    this.setData({
+      movies: movies
+    });
   }
+
 })

@@ -3,7 +3,7 @@
   <view class="movielist-container">
     <view class="movielist-inner-container">
       <view class="movie-head">
-        <text class="slogan">正在热映</text>
+        <text class="slogan">{{slogan}}</text>
         <view class="more">
           <text class="more-text">更多</text>
           <image class="more-img" src="/img/icon/arrow-right.png"></image>

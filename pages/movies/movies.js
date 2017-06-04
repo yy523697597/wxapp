@@ -16,12 +16,14 @@ Page({
    */
   onLoad: function (options) {
     var url = app.gobalData.doubanUrl;
-    var inTheatersUrl = url + '/v2/movie/in_theaters' + '?start=0&count=3';
+    var inTheatersUrl = url + '/v2/movie/in_theaters' + '?start=0&count=3&city=成都';
     var comingSoonUrl = url + '/v2/movie/coming_soon' + '?start=0&count=3';
     var top250Url = url + '/v2/movie/top250' + '?start=0&count=3';
+   
     this.getMovieList(inTheatersUrl, 'inTheaters');
     this.getMovieList(comingSoonUrl, 'comingSoon');
     this.getMovieList(top250Url, 'top250');
+   
   },
   getMovieList: function (url, category) {
     var that = this;
@@ -44,11 +46,15 @@ Page({
   },
   handleData: function (moviedata, category) {
     var movies = [];
+    var slogan = moviedata.title;
     for (var key in moviedata.subjects) {
+
       var subject = moviedata.subjects[key];
       var title = subject.title;
       var movieid = subject.id;
-      var score = subject.rating.average;
+      
+      var score = subject.rating.average
+      
       var stars = util.convertStarsToArray(subject.rating.stars);
       var coverimgUrl = subject.images.large;
       if (title.length > 6) {
@@ -70,7 +76,8 @@ Page({
     // 使用一个对象进行嵌套，是为了让每一个电影数组中的信息都绑定到movieStorage.category.movies中
     // 这样在movielist-template中才能很方便的通过传递movies属性来获取所有信息
     movieStorage[category] = {
-      movies: movies
+      movies: movies,
+      slogan: slogan
     };
     // 直接绑定movieStorage对象到data,对movieStorage.category属性将会赋值给data,此时data中有三个属性，分别为 inTheaters、comingSoon、top250，而每一个属性下的movies属性才真正存储了电影数组
     this.setData(movieStorage);

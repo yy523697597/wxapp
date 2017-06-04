@@ -63,6 +63,11 @@ Page({
     this.setData({
       movies: movies
     });
+  },
+  onReady:function(){
+    wx.setNavigationBarTitle({
+      title: this.data.navigationTitle,
+    })
   }
 
 })

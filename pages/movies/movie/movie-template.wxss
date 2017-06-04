@@ -15,4 +15,6 @@
 }
 .movie-figure{
   margin-bottom: 15rpx;
+  display: flex;
+flex-direction: column;
 }

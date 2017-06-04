@@ -1,5 +1,4 @@
 @import "../movie/movie-template.wxss";
 .single-movie-container{
-  float: left;
   margin-bottom: 20rpx;
 }

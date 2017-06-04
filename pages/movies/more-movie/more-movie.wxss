@@ -1,5 +1,11 @@
 /* pages/movies/more-movie/more-movie.wxss */
 @import "../movie-grid/movie-grid-template.wxss";
-.more-movie-container{
-  padding-left: 9rpx;
+
+.more-movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+  padding-top: 40rpx;
+  padding-bottom: 20rpx;
 }

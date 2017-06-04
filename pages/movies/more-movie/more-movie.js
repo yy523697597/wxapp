@@ -23,13 +23,13 @@ Page({
     var dataUrl = '';
     switch (navigationTitle) {
       case "正在上映的电影-成都":
-        dataUrl = baseUrl + '/v2/movie/in_theaters';
+        dataUrl = baseUrl + '/v2/movie/in_theaters?count=18';
         break;
       case "即将上映的电影":
-        dataUrl = baseUrl + '/v2/movie/coming_soon';
+        dataUrl = baseUrl + '/v2/movie/coming_soon?count=18';
         break;
       case "豆瓣电影Top250":
-        dataUrl = baseUrl + '/v2/movie/top250';
+        dataUrl = baseUrl + '/v2/movie/top250?count=18';
         break;
     }
     util.getMovieList(dataUrl, this.handleData);

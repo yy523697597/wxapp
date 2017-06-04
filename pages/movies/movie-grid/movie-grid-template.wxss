@@ -1,4 +1,16 @@
 @import "../movie/movie-template.wxss";
-.single-movie-container{
+
+.single-movie-container {
   margin-bottom: 20rpx;
+}
+
+.grid-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+  padding-top: 40rpx;
+  padding-bottom: 20rpx;
 }

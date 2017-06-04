@@ -19,11 +19,11 @@ Page({
     var inTheatersUrl = url + '/v2/movie/in_theaters' + '?start=0&count=3&city=成都';
     var comingSoonUrl = url + '/v2/movie/coming_soon' + '?start=0&count=3';
     var top250Url = url + '/v2/movie/top250' + '?start=0&count=3';
-   
+
     this.getMovieList(inTheatersUrl, 'inTheaters');
     this.getMovieList(comingSoonUrl, 'comingSoon');
     this.getMovieList(top250Url, 'top250');
-   
+
   },
   getMovieList: function (url, category) {
     var that = this;
@@ -35,7 +35,7 @@ Page({
         'content-type': 'json'
       },
       success: function (res) {
-        console.log(res);
+        console.log(res)
         var moviedata = res.data;
         that.handleData(moviedata, category);
       },
@@ -52,9 +52,9 @@ Page({
       var subject = moviedata.subjects[key];
       var title = subject.title;
       var movieid = subject.id;
-      
+
       var score = subject.rating.average
-      
+
       var stars = util.convertStarsToArray(subject.rating.stars);
       var coverimgUrl = subject.images.large;
       if (title.length > 6) {
@@ -81,6 +81,12 @@ Page({
     };
     // 直接绑定movieStorage对象到data,对movieStorage.category属性将会赋值给data,此时data中有三个属性，分别为 inTheaters、comingSoon、top250，而每一个属性下的movies属性才真正存储了电影数组
     this.setData(movieStorage);
+  },
+  onMoreTap: function (evt) {
+    var category = evt.currentTarget.dataset.category;
+    wx.navigateTo({
+      url: 'more-movie/more-movie?category=' + category,
+    })
   }
 
 })

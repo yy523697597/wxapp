@@ -43,6 +43,7 @@ Page({
     util.getMovieList(dataUrl, this.handleData);
   },
   handleData: function (moviedata) {
+    
     this.data.isFreshing = true;
     var movies = [];
     var slogan = moviedata.title;
@@ -81,6 +82,7 @@ Page({
     });
     // 每次加载，加载总数就加18
     this.data.totalCount += 18;
+    wx.hideNavigationBarLoading();
   },
   onReady: function () {
     wx.setNavigationBarTitle({
@@ -91,6 +93,7 @@ Page({
     if (this.data.isFreshing) {
       var nextUrl = this.data.requestUrl + '?start=' + this.data.totalCount + '&count=18';
       util.getMovieList(nextUrl, this.handleData);
+      wx.showNavigationBarLoading();
       this.data.isFreshing = false;
     }
   }

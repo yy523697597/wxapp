@@ -82,7 +82,10 @@ Page({
     });
     // 每次加载，加载总数就加18
     this.data.totalCount += 18;
+    // 关闭导航栏刷新标记
     wx.hideNavigationBarLoading();
+    // 关闭下拉刷新
+    wx.stopPullDownRefresh();
   },
   onReady: function () {
     wx.setNavigationBarTitle({
@@ -93,15 +96,18 @@ Page({
     if (this.data.isFreshing) {
       var nextUrl = this.data.requestUrl + '?start=' + this.data.totalCount + '&count=18';
       util.getMovieList(nextUrl, this.handleData);
+      // 开启状态栏刷新标记
       wx.showNavigationBarLoading();
       this.data.isFreshing = false;
     }
   },
   onPullDownRefresh: function () {
     var refreshUrl = this.data.requestUrl + "?start=0&count=18";
+    // 下拉刷新时，需要将原有数据清空，并且改变标记
     this.data.movies = {};
     this.data.isEmpty = true;
     util.getMovieList(refreshUrl, this.handleData);
+    // 开启状态栏刷新标记
     wx.showNavigationBarLoading();
   }
 })

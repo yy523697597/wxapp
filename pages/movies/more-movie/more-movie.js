@@ -43,7 +43,7 @@ Page({
     util.getMovieList(dataUrl, this.handleData);
   },
   handleData: function (moviedata) {
-    
+
     this.data.isFreshing = true;
     var movies = [];
     var slogan = moviedata.title;
@@ -89,12 +89,19 @@ Page({
       title: this.data.navigationTitle,
     })
   },
-  onScrollLower: function () {
+  onReachBottom: function () {
     if (this.data.isFreshing) {
       var nextUrl = this.data.requestUrl + '?start=' + this.data.totalCount + '&count=18';
       util.getMovieList(nextUrl, this.handleData);
       wx.showNavigationBarLoading();
       this.data.isFreshing = false;
     }
+  },
+  onPullDownRefresh: function () {
+    var refreshUrl = this.data.requestUrl + "?start=0&count=18";
+    this.data.movies = {};
+    this.data.isEmpty = true;
+    util.getMovieList(refreshUrl, this.handleData);
+    wx.showNavigationBarLoading();
   }
 })

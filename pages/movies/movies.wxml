@@ -3,9 +3,9 @@
 <view class="container">
   <view class="search-container">
     <icon type="search" size="13" class="search-img" color="#405f80" />
-    <input type="text" placeholder="请输入要搜索的电影" placeholder-class="placeholder" bindfocus="onInputFocus" bindfocus="onInputConfirm" />
-    <image src="/img/icon/close.png" class="cancle-img"catchtap="onCancleTap" wx:if="{{searchShow}}"></image>
-    
+    <input type="text" placeholder="请输入要搜索的电影" placeholder-class="placeholder" bindfocus="onInputFocus" bindfocus="onInputFocus" bindconfirm="onBindConfirm" />
+    <image src="/img/icon/close.png" class="cancle-img" catchtap="onCancleTap" wx:if="{{searchShow}}"></image>
+
   </view>
 
   <view wx:if="{{movieShow}}">
@@ -22,6 +22,6 @@
   </view>
 
   <view class="search-panel" wx:if="{{searchShow}}">
-    <template is="moviegrid" />
+    <template is="moviegrid" data="{{...searchResult}}" />
   </view>
 </view>

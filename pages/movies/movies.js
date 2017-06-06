@@ -9,6 +9,7 @@ Page({
     inTheaters: {},
     comingSoon: {},
     top250: {},
+    searchResult: {},
     movieShow: true,
     searchShow: false
   },
@@ -37,7 +38,6 @@ Page({
         'content-type': 'json'
       },
       success: function (res) {
-        console.log(res)
         var moviedata = res.data;
         that.handleData(moviedata, category);
       },
@@ -83,6 +83,7 @@ Page({
     };
     // 直接绑定movieStorage对象到data,对movieStorage.category属性将会赋值给data,此时data中有三个属性，分别为 inTheaters、comingSoon、top250，而每一个属性下的movies属性才真正存储了电影数组
     this.setData(movieStorage);
+    wx.hideNavigationBarLoading();
   },
   onMoreTap: function (evt) {
     var category = evt.currentTarget.dataset.category;
@@ -90,17 +91,30 @@ Page({
       url: 'more-movie/more-movie?category=' + category,
     })
   },
-  onInputConfirm: function () {
+  onInputFocus: function () {
     this.setData({
       movieShow: false,
       searchShow: true
     });
+    wx.setNavigationBarTitle({
+      title: '搜索列表',
+    });
   },
-  onCancleTap:function(){
+  onCancleTap: function () {
     this.setData({
       movieShow: true,
       searchShow: false
     });
+    wx.setNavigationBarTitle({
+      title: '电影列表',
+    });
+  },
+  onBindConfirm: function (event) {
+    wx.showNavigationBarLoading();
+    var url = app.gobalData.doubanUrl;
+    var searchValue = event.detail.value;
+    var searchUrl = url + '/v2/movie/search?q=' + searchValue + '&count=18';
+    this.getMovieList(searchUrl, 'searchResult');
   }
 
 })

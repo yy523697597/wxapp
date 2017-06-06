@@ -1,5 +1,5 @@
 @import "movie-list/movielist-template.wxss";
-
+@import "movie-grid/movie-grid-template.wxss";
 .search-container {
   display: flex;
   flex-direction: row;
@@ -31,4 +31,8 @@
   margin: auto 30rpx auto 20rpx;
   width: 30rpx;
   height: 30rpx;
+}
+.search-panel{
+  position: absolute;
+  top: 100rpx;
 }

@@ -14,7 +14,7 @@
   width: 90%;
   font-size: 28rpx;
   margin-left: 20rpx;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .search-img {
@@ -25,4 +25,10 @@
   font-size: 14px;
   margin-left: 20rpx;
   color: #d1d1d1;
+}
+
+.cancle-img {
+  margin: auto 30rpx auto 20rpx;
+  width: 30rpx;
+  height: 30rpx;
 }

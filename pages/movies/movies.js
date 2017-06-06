@@ -8,7 +8,9 @@ Page({
   data: {
     inTheaters: {},
     comingSoon: {},
-    top250: {}
+    top250: {},
+    movieShow: true,
+    searchShow: false
   },
 
   /**
@@ -87,6 +89,18 @@ Page({
     wx.navigateTo({
       url: 'more-movie/more-movie?category=' + category,
     })
+  },
+  onInputConfirm: function () {
+    this.setData({
+      movieShow: false,
+      searchShow: true
+    });
+  },
+  onCancleTap:function(){
+    this.setData({
+      movieShow: true,
+      searchShow: false
+    });
   }
 
 })

@@ -1,17 +1,27 @@
 <import src="movie-list/movielist-template.wxml" />
+<import src="movie-grid/movie-grid-template.wxml" />
 <view class="container">
   <view class="search-container">
     <icon type="search" size="13" class="search-img" color="#405f80" />
-    <input type="text" placeholder="请输入要搜索的电影" placeholder-class="placeholder" bindfocus="onInputFocus" bindconfirm="onInputConfirm" />
+    <input type="text" placeholder="请输入要搜索的电影" placeholder-class="placeholder" bindfocus="onInputFocus" bindfocus="onInputConfirm" />
+    <image src="/img/icon/close.png" class="cancle-img"catchtap="onCancleTap" wx:if="{{searchShow}}"></image>
+    
   </view>
-  <view>
-    <!--通过...展开属性,因为在每个属性下的movies属性才真正存在数据-->
-    <template is="movielist" data="{{...inTheaters}}" />
+
+  <view wx:if="{{movieShow}}">
+    <view>
+      <!--通过...展开属性,因为在每个属性下的movies属性才真正存在数据-->
+      <template is="movielist" data="{{...inTheaters}}" />
+    </view>
+    <view>
+      <template is="movielist" data="{{...comingSoon}}" />
+    </view>
+    <view>
+      <template is="movielist" data="{{...top250}}" />
+    </view>
   </view>
-  <view>
-    <template is="movielist" data="{{...comingSoon}}" />
-  </view>
-  <view>
-    <template is="movielist" data="{{...top250}}" />
+
+  <view class="search-panel" wx:if="{{searchShow}}">
+    <template is="moviegrid" />
   </view>
 </view>

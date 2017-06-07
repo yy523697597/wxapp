@@ -128,5 +128,11 @@ Page({
     var searchValue = this.data.searchValue;
     var searchUrl = url + '/v2/movie/search?q=' + searchValue + '&count=18';
     this.getMovieList(searchUrl, 'searchResult');
+  },
+  onMovieTap: function (event) {
+    var id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: 'movie-detail/movie-detail?id=' + id,
+    })
   }
 })

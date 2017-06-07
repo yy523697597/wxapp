@@ -8,7 +8,7 @@ Page({
    */
   data: {
     navigationTitle: '',
-    movies: {},
+    movies: [],
     requestUrl: '',
     totalCount: 18,
     isEmpty: true,

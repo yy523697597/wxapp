@@ -6,12 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    inTheaters: {},
-    comingSoon: {},
-    top250: {},
-    searchResult: {},
+    inTheaters: [],
+    comingSoon: [],
+    top250: [],
+    searchResult: [],
     movieShow: true,
-    searchShow: false
+    searchShow: false,
+    isFreshing: false
   },
 
   /**
@@ -84,6 +85,7 @@ Page({
     // 直接绑定movieStorage对象到data,对movieStorage.category属性将会赋值给data,此时data中有三个属性，分别为 inTheaters、comingSoon、top250，而每一个属性下的movies属性才真正存储了电影数组
     this.setData(movieStorage);
     wx.hideNavigationBarLoading();
+
   },
   onMoreTap: function (evt) {
     var category = evt.currentTarget.dataset.category;
@@ -113,8 +115,18 @@ Page({
     wx.showNavigationBarLoading();
     var url = app.gobalData.doubanUrl;
     var searchValue = event.detail.value;
+    // 存储搜索值为全局变量
+    this.data.searchValue = searchValue;
+    var searchUrl = url + '/v2/movie/search?q=' + searchValue + '&count=18';
+    this.getMovieList(searchUrl, 'searchResult');
+  },
+  // 下拉刷新
+  onPullDownRefresh: function (event) {
+    wx.showNavigationBarLoading();
+    this.data.searchResult = [];
+    var url = app.gobalData.doubanUrl;
+    var searchValue = this.data.searchValue;
     var searchUrl = url + '/v2/movie/search?q=' + searchValue + '&count=18';
     this.getMovieList(searchUrl, 'searchResult');
   }
-
 })

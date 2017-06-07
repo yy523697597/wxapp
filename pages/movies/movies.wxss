@@ -33,6 +33,6 @@
   height: 30rpx;
 }
 .search-panel{
-  position: absolute;
-  top: 100rpx;
+ 
+  margin-top: 10rpx;
 }

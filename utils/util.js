@@ -33,8 +33,31 @@ function getMovieList(url, cb) {
     }
   });
 }
+function convertCartsInfo(arr) {
+  var info = '';
+  arr.forEach(function (val) {
+    info = val.name + '/' + info;
+  });
+  // slice方法第二个参数如果是负数，那么它会自动加上字符串长度，然后得出结果
+  info = info.slice(0, -1);
+  return info;
+}
+
+function convertCarts(arr) {
+  var actors = [];
+
+  arr.forEach(function (val) {
+    var actor = {}
+    actor.img = val.avatars.large;
+    actor.name = val.name;
+    actors.push(actor);
+  });
+  return actors;
+}
 // 此处是exports别写成export
 module.exports = {
   convertStarsToArray: convertStarsToArray,
-  getMovieList: getMovieList
+  getMovieList: getMovieList,
+  convertCartsInfo: convertCartsInfo,
+  convertCarts: convertCarts
 };

@@ -106,8 +106,15 @@ Page({
     // 下拉刷新时，需要将原有数据清空，并且改变标记
     this.data.movies = {};
     this.data.isEmpty = true;
+    this.data.totalCount =0;
     util.getMovieList(refreshUrl, this.handleData);
     // 开启状态栏刷新标记
     wx.showNavigationBarLoading();
+  },
+  onMovieTap: function (event) {
+    var id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../movie-detail/movie-detail?id=' + id,
+    })
   }
 })

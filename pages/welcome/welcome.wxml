@@ -1,8 +1,10 @@
 <!--pages/welcome/welcom.wxml-->
 <view class="container">
-  <image src="/img/avatar/user.jpg" class="user-avatar"></image>
-  <text class="user-name">hello,{{username}}</text>
+  <image src="{{url}}" class="bg-img" mode="aspectFill"></image>
+  <image src="{{avatarUrl}}" class="user-avatar" ></image>
+  <text class="user-name">hello,{{nickName}}</text>
   <button class="moto" bindtap="onTap">
-    开启小程序
+    进入光影世界
   </button>
+  <text class="copyright">{{copyright}}</text>
 </view>

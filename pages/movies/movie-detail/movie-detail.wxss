@@ -1,1 +1,145 @@
 /* pages/movies/movie-detail/movie-detail.wxss */
+@import "../stars/stars-template.wxss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.head-img {
+  width: 100%;
+  height: 320rpx;
+  filter: blur(10px);
+}
+
+.head-img-hover {
+  position: absolute;
+  width: 100%;
+  height: 320rpx;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-title {
+  font-size: 19px;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 50rpx;
+  margin-left: 40rpx;
+  letter-spacing: 2px;
+}
+
+.sub-title {
+  font-size: 28rpx;
+  color: #fff;
+  margin-left: 40rpx;
+  margin-top: 30rpx;
+}
+
+.like {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30rpx;
+  margin-left: 40rpx;
+}
+
+.highlight-font {
+  color: #f21146;
+  font-size: 22rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+  margin-top: -5rpx;
+}
+
+.plain-font {
+  color: #eee;
+  font-size: 22rpx;
+  margin-right: 30rpx;
+  vertical-align: middle;
+}
+
+.movie-img {
+  position: absolute;
+  top: 160rpx;
+  right: 30rpx;
+  height: 238rpx;
+  width: 175rpx;
+}
+
+.summary{
+  display: flex;
+  flex-direction: column;
+  margin-left: 40rpx;
+  margin-top: 40rpx;
+  color: #777;
+}
+.original-title{
+  color: #1f3463;
+  font-size: 24rpx;
+  font-weight: bold;
+  margin-bottom: 40rpx;
+}
+.flex-flow{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10rpx;
+}
+.mark{
+  margin-right: 30rpx;
+  white-space: nowrap;
+  color: #999;
+}
+.hr{
+  margin-top: 45rpx;
+  height: 1px;
+  width: 100%;
+  background-color: #d9d9d9;
+}
+.synopsis{
+  margin-left: 40rpx;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50rpx;
+}
+.synopsis-font{
+  color: #999;
+}
+.synopsis-content{
+  margin-top: 20rpx;
+  margin-right: 40rpx;
+  line-height: 40rpx;
+  letter-spacing: 1px;
+}
+.cast{
+  margin-left: 40rpx;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50rpx;
+}
+.cast-font{
+  color: #999;
+  margin-bottom: 40rpx;
+}
+.cast-container{
+  display: inline-flex;
+  flex-direction:column;
+  margin-bottom: 50rpx;
+  margin-right: 40rpx;
+  width: 170rpx;
+  text-align: center;
+  white-space: normal;
+}
+
+.cast-img{
+  width: 180rpx;
+  height: 259rpx;
+}
+.cast-name{
+  margin: 10rpx auto 0;
+}
+.cast-imgs {
+  width: 100%;
+  white-space: nowrap;
+}

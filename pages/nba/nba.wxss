@@ -1,0 +1,43 @@
+/* pages/nba/nba.wxss */
+
+.nba-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20rpx;
+}
+
+.detail-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.content {
+  padding: 0rpx 20rpx 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #fff;
+  width: 90%;
+  margin: 0 auto 15rpx;
+  border-bottom: 1px solid #999;
+  border-radius: 3px;
+  height: 180rpx;
+}
+
+.nba-title {
+  width: 480rpx;
+  margin-right: 35rpx;
+}
+
+.nba-img {
+  width: 150rpx;
+  height: 130rpx;
+  border-radius: 5rpx;
+}
+
+.nba-comment {
+  color: #999;
+  margin-top: -120rpx;
+  font-size: 24rpx;
+}

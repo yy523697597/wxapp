@@ -1,0 +1,12 @@
+<!--pages/nba/nba.wxml-->
+<view class="nba-container">
+  <block wx:for="{{nbaInfos}}" wx:for-item="nbaInfo" wx:key="nbanews">
+    <view class="content">
+      <view class="detail-container" data-id="{{nbaInfo.nid}}" catchtap="onDetailTap">
+        <text class="nba-title">{{nbaInfo.title}}</text>
+        <image class="nba-img" src="{{nbaInfo.img}}" mode="aspectFill"></image>
+      </view>
+      <text class="nba-comment">{{nbaInfo.replies}} 评论</text>
+    </view>
+  </block>
+</view>

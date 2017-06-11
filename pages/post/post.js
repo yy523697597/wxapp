@@ -1,5 +1,3 @@
-var postsData = require('../../data/posts-data.js');
-
 
 Page({
   /**
@@ -12,45 +10,48 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // var postid = options.id;
+    var that = this;
+    wx.request({
+      url: 'https://news-at.zhihu.com/api/4/news/latest',
+      success: function (res) {
+        var data = res.data;
+        var swiperData = data.top_stories;
+        var todayData = data.stories;
+        swiperData.forEach((val) => {
+          val.image = 'https://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl=' + val.image;
+        });
+        todayData.forEach(val => {
+          val.images[0] = 'https://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl=' + val.images[0];
+        });
+        that.setData({
+          swiperData: swiperData,
+          todayData: todayData
+        });
+        console.log(swiperData);
+        console.log(todayData);
+      },fail:function(error){
+        console.log(error)
+      }
+    })
 
 
-    this.setData({
-      swiperInfo: postsData.swiperInfo,
-      postList: postsData.postList
-    });
-
-    // var readingList = wx.getStorageSync('readingList');
-    // if (readingList) {
-    //   // 获取文章收藏状态
-    //   var readingNum = readingList[postid];
-    //   // 更新文章收藏状态
-    //   this.setData({
-    //     readingNum: readingNum
-    //   });
-    // } else {
-    //   // 如果不存在缓存就设置一个新缓存
-    //   var readingList = {};
-    //   wx.setStorageSync('readingList', readingList);
-    // }
   },
   onPostTap: function (evt) {
     var postid = evt.currentTarget.dataset.postid;
-    // var readingList = wx.getStorageSync('readingList');
     wx.navigateTo({
       url: 'post-detail/post-detail?id=' + postid
     });
-
-    // postsData.postList[postid].reading++;
-    // readingList[postid] = postsData.postList[postid].reading;
-    // wx.setStorageSync('readingList', readingList);
   },
-  onSwiperTap: function (evt) { 
+  onSwiperTap: function (evt) {
     var postid = evt.currentTarget.dataset.postid;
+    console.log(postid)
     wx.navigateTo({
-      url: 'post-detail/post-detail?id=' + postid
+      url: 'post-detail/post-detail?id=' + postid,
+      success: function (res) {
+
+      }
     });
 
-    // postsData.postList[postid].reading++;
+
   }
 })

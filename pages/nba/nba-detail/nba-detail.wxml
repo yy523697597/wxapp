@@ -1,0 +1,31 @@
+<!--pages/nba-detail/nba-detail.wxml-->
+
+<import src="../../../wxParse/wxParse.wxml" />
+<view class="container">
+  
+  <view class="content-container">
+  <view class="title">{{detail.news.title}}</view>
+  <view class="source">
+    <text class="add-time">{{detail.news.addtime}}</text>
+    <text class="origin">{{detail.news.origin}}</text>
+  </view>
+    <image class="top-img" src="{{detail.news.img_m}}" mode="aspectFill"></image>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+  </view>
+  <view class="com-light" wx:if="{{comments.length !=0}}">这些评论亮了</view>
+  <view class="comment-container">
+    <block wx:for="{{comments}}" wx:for-item="comment" wx:key="commentKey">
+      <view class="comment">
+        <image class="header" src="{{comment.header}}"></image>
+        <view class="light-container">
+          <view class="light-user">
+            <text class="name">{{comment.user_name}}</text>
+            <text class="light">亮了({{comment.light_count}})</text>
+            <text class="com-time">{{comment.format_time}}</text>
+          </view>
+          <text class="content">{{comment.content}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

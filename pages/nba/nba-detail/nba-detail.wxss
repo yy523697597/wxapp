@@ -1,0 +1,94 @@
+/* pages/nba-detail/nba-detail.wxss */
+
+.container {
+  color: #666;
+  background-color: #fff;
+  padding: 30rpx 0;
+  min-height: 100vh;
+}
+.content-container{
+  padding: 0 20rpx;
+}
+.wxParse-p {
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+  line-height: 1.5;
+  /*text-indent: 2em;*/
+}
+
+.title {
+  font-size: 38rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.add-time {
+  color: #999;
+  margin-right: 20rpx;
+  font-size: 24rpx;
+}
+
+.origin {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.source {
+  margin-bottom: 20rpx;
+}
+
+.top-img {
+  width: 100%;
+  height: 500rpx;
+  margin-bottom: 30rpx;
+}
+
+.com-light {
+  margin: 10rpx 0 0;
+  border-bottom: 1px solid #eee;
+  border-top: 1px solid #eee;
+  border-left: 3px solid #355a83;
+  color: #355a83;
+  padding: 5px 10rpx;
+}
+
+.header {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+}
+
+.comment {
+  display: flex;
+  flex-direction: row;
+  min-height: 75px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 20rpx;
+}
+
+.light-container {
+  width: 550rpx;
+}
+
+.name {
+  margin-right: 20rpx;
+}
+
+.light {
+  float: right;
+  color: #999;
+  font-size: 24rpx;
+  vertical-align: middle;
+}
+
+.com-time {
+  color: #999;
+  font-size: 24rpx;
+}
+.wxParseImg image{
+  width: 100%;
+  margin: 0 auto;
+  /*text-indent: 0;*/
+}

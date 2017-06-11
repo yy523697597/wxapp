@@ -1,11 +1,13 @@
 {
   "pages": [
+    "pages/nba/nba",
+    "pages/post/post",
     "pages/welcome/welcome",
     "pages/movies/movies",
-    "pages/post/post",
     "pages/post/post-detail/post-detail",
     "pages/movies/more-movie/more-movie",
-    "pages/movies/movie-detail/movie-detail"
+    "pages/movies/movie-detail/movie-detail",
+    "pages/nba/nba-detail/nba-detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#355A83",
@@ -27,6 +29,12 @@
         "text": "电影",
         "iconPath": "/img/tab/dianying.png",
         "selectedIconPath": "/img/tab/dianying_hl.png"
+      },
+      {
+        "pagePath": "pages/nba/nba",
+        "text": "篮球",
+        "iconPath": "/img/tab/yuedu.png",
+        "selectedIconPath": "/img/tab/yuedu_hl.png"
       }
     ]
   }

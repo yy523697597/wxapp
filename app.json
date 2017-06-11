@@ -33,8 +33,8 @@
       {
         "pagePath": "pages/nba/nba",
         "text": "篮球",
-        "iconPath": "/img/tab/yuedu.png",
-        "selectedIconPath": "/img/tab/yuedu_hl.png"
+        "iconPath": "/img/tab/basketball.png",
+        "selectedIconPath": "/img/tab/basketball_hl.png"
       }
     ]
   }

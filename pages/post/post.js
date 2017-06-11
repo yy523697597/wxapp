@@ -18,6 +18,7 @@ Page({
         var swiperData = data.top_stories;
         var todayData = data.stories;
         swiperData.forEach((val) => {
+          // 直接使用知乎的网址会报403错误，解决办法是在网址之前添加一个跳转网址
           val.image = 'https://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl=' + val.image;
         });
         todayData.forEach(val => {
@@ -27,8 +28,6 @@ Page({
           swiperData: swiperData,
           todayData: todayData
         });
-        console.log(swiperData);
-        console.log(todayData);
       },fail:function(error){
         console.log(error)
       }

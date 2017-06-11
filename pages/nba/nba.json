@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "nba"
+  "navigationBarTitleText": "篮球",
+  "enablePullDownRefresh": true
 }

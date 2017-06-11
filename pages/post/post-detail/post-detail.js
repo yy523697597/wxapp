@@ -1,4 +1,4 @@
-var postsData = require('../../../data/posts-data.js');
+
 // 获取app对象
 var app = getApp();
 

@@ -3,17 +3,16 @@
 <view>
   <swiper indicator-dots="true" autoplay="true" interval="5000" circular="true">
     <swiper-item wx:for="{{swiperData}}" wx:for-item="swiperItem">
-      <image catchtap="onSwiperTap" src="{{swiperItem.image}}" data-postid="{{swiperItem.id}}" mode="aspectFill"></image>
-      <text class="swiper-title">{{swiperItem.title}}</text>
+      <image catchtap="onSwiperTap" src="{{swiperItem.image}}" data-postid="{{swiperItem.post.id}}" mode="aspectFill"></image>
+      <text class="swiper-title">{{swiperItem.post.title}}</text>
     </swiper-item>
   </swiper>
 
-  <view class="today-container">
-    <text class="today-font">今日热文</text>
-    <block wx:for="{{todayData}}" wx:for-item="today">
+  <view class="today-container"> 
+    <block wx:for="{{feedsData}}" wx:for-item="feeds">
       <view class="today-content">
-        <text class="today-title">{{today.title}}</text>
-        <image src="{{today.images[0]}}" mode="scaleToFill" class="today-img"></image>
+        <text class="today-title">{{feeds.post.title}}</text>
+        <image src="{{feeds.image}}" mode="aspectFill" class="today-img"></image>
       </view>
     </block>
   </view>

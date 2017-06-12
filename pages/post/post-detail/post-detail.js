@@ -1,27 +1,49 @@
 
 // 获取app对象
 var app = getApp();
-
+var WxParse = require('../../../wxParse/wxParse.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    currentPostId: '',
-    isPlayingMusic: false
+    currentPostId: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
     // 获取文章详情内容
     var postid = options.id;
-    var postDetail = postsData.postList[postid];
-    this.setData(postDetail);
+    // 
+    wx.request({
+      url: 'https://app3.qdaily.com/wxapp/articles/info/' + postid + '.json',
+      success: (res) => {
+        var response = res.data.response;
+        var author = response.author;
+        var coverImg = response.image;
+        var detail = response.post;
+        var article = detail.content;
+        WxParse.wxParse('article', 'html', article, that, 5);
+        that.setData({
+          detail: detail
+        });
+        that.setData({
+          coverImg: coverImg,
+          author: author,
+          detail:detail
+        });
+      }
+    });
+
+
     // 设置文章id为页面共享
-    this.data.currentPostId = postid;
+    this.setData({
+      currentPostId: postid
+    });
     // 获取缓存
     var collectionList = wx.getStorageSync('collectionList');
     if (collectionList) {
@@ -37,39 +59,8 @@ Page({
       wx.setStorageSync('collectionList', collectionList);
     }
 
-    //  从app对象中获取全局的音乐播放状态并设置当前页面的音乐播放状态
-    var g_isPlayingMusic = app.gobalData.g_isPlayingMusic;
-    var g_MusicPostId = app.gobalData.g_MusicPostId;
-    // 如果正在播放音乐，并且文章id和正在播放音乐的文章id相同就设置文章的音乐播放状态
-    if (g_isPlayingMusic && g_MusicPostId === postid) {
-      this.setData({
-        isPlayingMusic: g_isPlayingMusic
-      });
-    }
-    this.setMusicStatus();
 
-  },
-  setMusicStatus: function () {
-    // 监听全局音乐播放状态，用于同步文章详情页面图片
-    var that = this;
-    wx.onBackgroundAudioPlay(function () {
-      that.setData({
-        isPlayingMusic: true
-      });
-      // 设置全局音乐播放状态
-      app.gobalData.g_isPlayingMusic = true;
-      // 设置正在播放音乐文章id
-      app.gobalData.g_MusicPostId = that.data.currentPostId;
-    });
-    wx.onBackgroundAudioPause(function () {
-      that.setData({
-        isPlayingMusic: false
-      });
-      // 设置全局音乐播放状态
-      app.gobalData.g_isPlayingMusic = false;
-      // 音乐暂停时清楚正在播放音乐文章id
-      app.gobalData.g_MusicPostId = null;
-    });
+
   },
   onCollectionTap: function (event) {
     var collectionList = wx.getStorageSync('collectionList');
@@ -111,28 +102,6 @@ Page({
         })
       }
     })
-  },
-  onMusicTap: function () {
-    var isPlayingMusic = this.data.isPlayingMusic;
-    var currentPostId = this.data.currentPostId;
-    var music = postsData.postList[currentPostId].music;
-    if (isPlayingMusic) {
-      // 暂停音乐播放
-      wx.pauseBackgroundAudio();
-      this.setData({
-        isPlayingMusic: false
-      });
-    } else {
-      wx.playBackgroundAudio({
-        dataUrl: music.dataUrl,
-        title: music.title,
-        coverImgUrl: music.coverImgUrl
-      });
-      this.setData({
-        isPlayingMusic: true
-      });
-    }
-
   }
 
 

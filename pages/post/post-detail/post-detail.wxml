@@ -1,14 +1,13 @@
+<import src="../../../wxParse/wxParse.wxml" />
 <view class="container">
-  <image class="header-image" src="{{isPlayingMusic?music.coverImgUrl:headImage}}"></image>
-  <image catchtap="onMusicTap" class="audio" src="{{isPlayingMusic?'/img/music/music-stop.png':'/img/music/music-start.png'}}"></image>
+  <image class="header-image" src="{{coverImg}}" mode="aspectFill"></image>
   <view class="author-data">
-    <image class="author-image" src="{{avatar}}"></image>
-    <text class="author">{{author}}</text>
-    <text class="const-text">发表于</text>
-    <text class="date">{{dateTime}}</text>
+    <image class="author-image" src="{{author.avatar}}"></image>
+    <text class="author">{{author.name}}</text>
   </view>
-  <text class="title">{{title}}</text>
+  <text class="title">{{detail.title}}</text>
   <view class="tool">
+  <view class="tool-line"></view>
     <view class="circle-image">
       <image wx:if="{{collectionStatus}}" catchtap="onCollectionTap" src="/img/icon/collection.png"></image>
       <image wx:else catchtap="onCollectionTap" src="/img/icon/collection-anti.png"></image>
@@ -16,5 +15,5 @@
     </view>
     <view class="horizon"></view>
   </view>
-  <text class="detail">{{detail}}</text>
+  <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
 </view>

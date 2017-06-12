@@ -12,28 +12,18 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'https://news-at.zhihu.com/api/4/news/latest',
+      url: 'https://app3.qdaily.com/wxapp/homes/index/0.json',
       success: function (res) {
-        var data = res.data;
-        var swiperData = data.top_stories;
-        var todayData = data.stories;
-        swiperData.forEach((val) => {
-          // 直接使用知乎的网址会报403错误，解决办法是在网址之前添加一个跳转网址
-          val.image = 'https://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl=' + val.image;
-        });
-        todayData.forEach(val => {
-          val.images[0] = 'https://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl=' + val.images[0];
-        });
-        that.setData({
-          swiperData: swiperData,
-          todayData: todayData
-        });
-      },fail:function(error){
-        console.log(error)
+           var data = res.data.response;
+           var swiperData = data.banners;
+          var feedsData = data.feeds;
+        
+         that.setData({
+            swiperData: swiperData,
+            feedsData: feedsData
+         });
       }
-    })
-
-
+    });
   },
   onPostTap: function (evt) {
     var postid = evt.currentTarget.dataset.postid;

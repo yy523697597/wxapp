@@ -3,27 +3,18 @@
 <view>
   <swiper indicator-dots="true" autoplay="true" interval="5000" circular="true">
     <swiper-item wx:for="{{swiperData}}" wx:for-item="swiperItem">
-      <image catchtap="onSwiperTap" src="{{swiperItem.image}}" data-postid="{{swiperItem.post.id}}" mode="aspectFill"></image>
+      <image catchtap="onSwiperTap" src="{{swiperItem.image}}" data-swiperid="{{swiperItem.post.id}}" mode="aspectFill"></image>
       <text class="swiper-title">{{swiperItem.post.title}}</text>
     </swiper-item>
   </swiper>
 
   <view class="today-container"> 
     <block wx:for="{{feedsData}}" wx:for-item="feeds">
-      <view class="today-content">
+      <view class="today-content" catchtap="onPostTap" data-postid="{{feeds.post.id}}">
         <text class="today-title">{{feeds.post.title}}</text>
         <image src="{{feeds.image}}" mode="aspectFill" class="today-img"></image>
       </view>
     </block>
   </view>
 
-
-  <!--<block wx:for="{{postList}}" wx:for-item="item">
-    <!-- template -->
-  <!-- 使用...来展开item对象 -->
-  <!--<view catchtap="onPostTap" data-postid="{{item.postid}}" class="post-item">
-    <template is="post-item" data="{{...item}}" />
-    <template is="post-view" data="{{...item}}" />
-  </view>
-  </block>-->
 </view>

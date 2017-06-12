@@ -14,14 +14,15 @@ Page({
     wx.request({
       url: 'https://app3.qdaily.com/wxapp/homes/index/0.json',
       success: function (res) {
-           var data = res.data.response;
-           var swiperData = data.banners;
-          var feedsData = data.feeds;
-        
-         that.setData({
-            swiperData: swiperData,
-            feedsData: feedsData
-         });
+        var data = res.data.response;
+        var swiperData = data.banners;
+        var feedsData = data.feeds;
+        var lastkey = data.last_key;
+        that.setData({
+          swiperData: swiperData,
+          feedsData: feedsData,
+          lastkey:lastkey
+        });
       }
     });
   },
@@ -32,15 +33,31 @@ Page({
     });
   },
   onSwiperTap: function (evt) {
-    var postid = evt.currentTarget.dataset.postid;
-    console.log(postid)
+    var swiperid = evt.currentTarget.dataset.swiperid;
     wx.navigateTo({
-      url: 'post-detail/post-detail?id=' + postid,
-      success: function (res) {
-
-      }
+      url: 'post-detail/post-detail?id=' + swipertid
     });
-
-
+  },
+  // https://app3.qdaily.com/wxapp/homes/index/1497234291_946656000.json
+  onReachBottom: function (event) {
+    wx.showNavigationBarLoading();
+    var that = this;
+    var lastkey = that.data.lastkey;
+    wx.request({
+      url: 'https://app3.qdaily.com/wxapp/homes/index/' + lastkey+'.json',
+      success: function (res) {
+        var newData = res.data.response;
+        var newFeedsData = newData.feeds;
+        var lastkey = newData.last_key;
+        var newFeeds = that.data.feedsData.concat(newFeedsData);
+        that.setData({
+          feedsData: newFeeds,
+          lastkey: lastkey
+        });
+        wx.hideNavigationBarLoading();
+      }
+      // 175497
+      // 149840
+    })
   }
 })

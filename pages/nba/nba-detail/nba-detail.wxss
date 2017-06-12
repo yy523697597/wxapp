@@ -10,8 +10,8 @@
   padding: 0 20rpx;
 }
 .wxParse-p {
-  font-size: 32rpx;
-  margin-bottom: 10rpx;
+  font-size: 34rpx;
+  margin-bottom: 25rpx;
   line-height: 1.5;
   /*text-indent: 2em;*/
 }

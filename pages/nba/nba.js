@@ -69,6 +69,7 @@ Page({
         that.setData({
           nbaInfos: nbaInfos
         });
+        wx.stopPullDownRefresh();
         wx.hideNavigationBarLoading();
       }
     });

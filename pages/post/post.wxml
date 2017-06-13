@@ -8,7 +8,7 @@
     </swiper-item>
   </swiper>
 
-  <view class="today-container"> 
+  <view class="today-container">
     <block wx:for="{{feedsData}}" wx:for-item="feeds">
       <view class="today-content" catchtap="onPostTap" data-postid="{{feeds.post.id}}">
         <text class="today-title">{{feeds.post.title}}</text>

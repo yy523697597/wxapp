@@ -13,8 +13,9 @@
   padding: 30rpx 20rpx 22rpx;
 }
 .slogan{
-  font-size: 24rpx;
+  font-size: 34rpx;
   letter-spacing: 2px;
+  font-weight: bold;
 }
 .more{
   float: right;

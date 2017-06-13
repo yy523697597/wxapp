@@ -18,6 +18,9 @@ Page({
     var that = this;
     // 获取文章详情内容
     var postid = options.id;
+    this.setData({
+      postid: postid
+    });
     // 
     wx.request({
       url: 'https://app3.qdaily.com/wxapp/articles/info/' + postid + '.json',
@@ -34,7 +37,7 @@ Page({
         that.setData({
           coverImg: coverImg,
           author: author,
-          detail:detail
+          detail: detail
         });
       }
     });
@@ -102,7 +105,19 @@ Page({
         })
       }
     })
+  },
+  onReachBottom: function () {
+    // https://app3.qdaily.com/wxapp/comments/index/article/41931/0.json
+    var postid = this.data.postid;
+    var that = this;
+    wx.request({
+      url: 'https://app3.qdaily.com/wxapp/comments/index/article/' + postid + '/0.json',
+      success: res => {
+        that.setData({
+          comments: res.data.response.comments
+        });
+      }
+    })
   }
-
 
 })

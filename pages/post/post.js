@@ -35,7 +35,7 @@ Page({
   onSwiperTap: function (evt) {
     var swiperid = evt.currentTarget.dataset.swiperid;
     wx.navigateTo({
-      url: 'post-detail/post-detail?id=' + swipertid
+      url: 'post-detail/post-detail?id=' + swiperid
     });
   },
   // https://app3.qdaily.com/wxapp/homes/index/1497234291_946656000.json
@@ -76,6 +76,7 @@ Page({
           lastkey: lastkey
         });
         wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
       }
     });
   }

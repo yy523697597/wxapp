@@ -59,5 +59,24 @@ Page({
       // 175497
       // 149840
     })
+  },
+  onPullDownRefresh:function(event){
+    wx.showNavigationBarLoading();
+    var that = this;
+    wx.request({
+      url: 'https://app3.qdaily.com/wxapp/homes/index/0.json',
+      success: function (res) {
+        var data = res.data.response;
+        var swiperData = data.banners;
+        var feedsData = data.feeds;
+        var lastkey = data.last_key;
+        that.setData({
+          swiperData: swiperData,
+          feedsData: feedsData,
+          lastkey: lastkey
+        });
+        wx.hideNavigationBarLoading();
+      }
+    });
   }
 })

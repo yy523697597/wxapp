@@ -85,7 +85,7 @@ Page({
     // 直接绑定movieStorage对象到data,对movieStorage.category属性将会赋值给data,此时data中有三个属性，分别为 inTheaters、comingSoon、top250，而每一个属性下的movies属性才真正存储了电影数组
     this.setData(movieStorage);
     wx.hideNavigationBarLoading();
-
+    wx.stopPullDownRefresh();
   },
   onMoreTap: function (evt) {
     var category = evt.currentTarget.dataset.category;

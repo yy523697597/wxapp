@@ -1,3 +1,4 @@
 {
-    "navigationBarTitleText": "满足你的好奇心"
+  "navigationBarTitleText": "满足你的好奇心",
+  "enablePullDownRefresh": true
 }

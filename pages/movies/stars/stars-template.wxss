@@ -1,6 +1,9 @@
 .stars-container {
   display: flex;
   flex-direction: row;
+  height: 55rpx;
+  align-items: center;
+  margin-bottom: -10rpx;
 }
 
 .stars {

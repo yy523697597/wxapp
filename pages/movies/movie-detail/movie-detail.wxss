@@ -127,7 +127,7 @@
   flex-direction:column;
   margin-bottom: 50rpx;
   margin-right: 40rpx;
-  width: 170rpx;
+  width: 180rpx;
   text-align: center;
   white-space: normal;
 }
@@ -135,6 +135,7 @@
 .cast-img{
   width: 180rpx;
   height: 259rpx;
+  margin-bottom: 15rpx;
 }
 .cast-name{
   margin: 10rpx auto 0;

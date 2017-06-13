@@ -1,6 +1,5 @@
 @import "/wxParse/wxParse.wxss";
 text{
-    font-family: 'MicroSoft Yahei';
     font-size: 30rpx;
     color: #333;
 }

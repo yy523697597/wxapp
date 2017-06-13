@@ -6,6 +6,10 @@ swiper, image {
   height: 600rpx;
 }
 
+swiper {
+  margin-bottom: 10rpx;
+}
+
 .post-item {
   background: #fff;
 }
@@ -22,29 +26,34 @@ swiper, image {
 .today-container {
   display: flex;
   flex-direction: column;
-  padding-top: 30rpx;
 }
-.today-font{
+
+.today-font {
   font-size: 28rpx;
   color: #999;
   margin-left: 40rpx;
   margin-bottom: 30rpx;
 }
-.today-content{
+
+.today-content {
   display: flex;
   flex-direction: row;
   background-color: #fff;
-  border-radius:10rpx;
   margin: 0 auto 10rpx;
-  width: 90%;
-  padding: 20rpx;
-  border-bottom: 1px solid #999;
+  width: 100%;
 }
-.today-img{
-  width: 252rpx;
-  height: 150rpx;
+
+.today-img {
+  width: 400rpx;
+  height: 220rpx;
 }
-.today-title{
+
+.today-title {
+  line-height: 1.5;
+  font-weight: bold;
   width: 480rpx;
-  margin-right: 35rpx;
+  margin: 30rpx 35rpx 20rpx;
+  letter-spacing: 2rpx;
+  max-height: 170rpx;
+  overflow: hidden;
 }
